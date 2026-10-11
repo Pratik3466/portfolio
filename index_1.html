@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pratik Sarkar | Product Manager</title>
+<meta name="description" content="Product Manager across payments, enterprise AI and utility marketplaces. Scroll back through the years and cities, from Paytm in 2026 to Smart Energy Water in 2021.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d1117;
+  --text:#f2eee6;
+  --soft:rgba(242,238,230,.74);
+  --faint:rgba(242,238,230,.5);
+  --glass:rgba(10,14,20,.58);
+  --glass-edge:rgba(255,255,255,.14);
+  --accent:#ffd27a;           /* retinted per city by script */
+  --display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --p:0;                      /* page scroll progress 0..1, set by script */
+  --sp:0;                     /* timeline progress 0..1, set by script */
+  --col:clamp(120px,21vw,290px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* ───────────── Fixed backdrop: one scene per city, cross-faded ───────────── */
+#stage{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--ink)}
+.scene{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.scene.on{opacity:1}
+.scene .sky{position:absolute;inset:0}
+.scene .orb{position:absolute;width:min(22vw,200px);aspect-ratio:1;border-radius:50%;filter:blur(1px);
+  right:12%;top:calc(14% + var(--p) * 26%);opacity:.9}
+.scene .layer{position:absolute;left:-10%;width:130%;bottom:0;height:62%}
+.scene .layer svg{width:100%;height:100%;display:block}
+.scene .l1{transform:translate3d(calc(var(--p) * -40px),0,0);opacity:.55}
+.scene .l2{transform:translate3d(calc(var(--p) * -120px),0,0);opacity:.8;height:54%}
+.scene .l3{transform:translate3d(calc(var(--p) * -300px),0,0);height:40%}
+.scene .haze{position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(to top,var(--haze),transparent)}
+#stage::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,10,14,.55),rgba(8,10,14,.18) 38%,rgba(8,10,14,.5))}
+.win{animation:tw 5s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* ───────────── Layout ───────────── */
+main{position:relative;z-index:1}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+
+/* Hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:96px 0 120px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.portrait{position:relative;width:100%;aspect-ratio:4/5;border-radius:999px 999px 28px 28px;overflow:hidden;border:1px solid var(--glass-edge);
+  background:linear-gradient(160deg,#27303c,#10151c);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block;position:relative}
+.portrait .mono{position:absolute;inset:0;display:grid;place-items:center;font:800 clamp(64px,10vw,110px)/1 var(--display);color:rgba(255,255,255,.2);letter-spacing:-.04em}
+.hero h1{font:800 clamp(46px,8.4vw,112px)/.92 var(--display);letter-spacing:-.045em;margin:0 0 20px;font-stretch:80%}
+.hero .role{font:500 clamp(19px,2.4vw,26px)/1.3 var(--display);margin:0 0 14px;color:var(--text)}
+.hero p.lead{margin:0 0 26px;max-width:56ch;color:var(--soft);font-size:clamp(17px,1.7vw,19px)}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.facts li{background:var(--glass);border:1px solid var(--glass-edge);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;padding:8px 15px;font-size:14px}
+.cue{margin-top:34px;display:inline-flex;gap:10px;align-items:center;color:var(--soft);font-size:15px;text-decoration:none}
+.cue i{display:block;width:22px;height:34px;border:2px solid currentColor;border-radius:14px;position:relative}
+.cue i::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;margin-left:-2px;border-radius:2px;background:currentColor;animation:wheel 1.6s ease-in-out infinite}
+@keyframes wheel{0%{transform:translateY(0);opacity:1}80%,100%{transform:translateY(10px);opacity:0}}
+
+/* Timeline */
+.timeline{position:relative;width:min(1120px,100% - 40px);margin-inline:auto;padding-bottom:30vh}
+.spine{position:absolute;left:calc(var(--col) + 22px);top:0;bottom:0;width:2px;background:rgba(255,255,255,.14)}
+.spine b{position:absolute;inset:0 0 auto 0;height:calc(var(--sp) * 100%);background:var(--accent);box-shadow:0 0 18px var(--accent)}
+.year{position:relative;min-height:100svh;display:grid;grid-template-columns:var(--col) minmax(0,1fr);gap:44px;padding:12vh 0}
+.year .when{position:sticky;top:11vh;align-self:start}
+.year .num{font:800 clamp(54px,8.2vw,118px)/.86 var(--display);letter-spacing:-.05em;font-stretch:78%;
+  color:transparent;-webkit-text-stroke:2px var(--text);transition:color .6s,-webkit-text-stroke-color .6s}
+.year.in .num{color:var(--text)}
+.year .city{margin-top:14px;display:flex;align-items:center;gap:8px;font:600 15px/1.2 var(--body);color:var(--accent)}
+.year .city::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 26%,transparent)}
+.year .body{display:grid;gap:22px;align-content:center;position:relative;padding-left:44px}
+.year .body::before{content:"";position:absolute;left:-1px;top:50%;width:44px;height:2px;background:var(--accent);opacity:.7}
+.year .accent-scope{display:contents}
+
+.entry{background:var(--glass);border:1px solid var(--glass-edge);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-radius:22px;padding:26px 28px;opacity:.28;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.year.in .entry{opacity:1;transform:none}
+.year.in .entry:nth-child(2){transition-delay:.12s}
+.entry header{display:flex;gap:18px;align-items:center;margin-bottom:14px}
+.logo{flex:none;width:68px;height:68px;border-radius:16px;background:#fff;display:grid;place-items:center;overflow:hidden;padding:9px}
+.logo img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.logo.fallback{background:var(--chipbg,#1e2630);color:#fff;font:800 22px/1 var(--display);letter-spacing:-.03em;padding:0;text-align:center}
+.entry h2{font:700 clamp(22px,2.6vw,30px)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 4px}
+.entry .sub{margin:0;color:var(--soft);font-size:15.5px}
+.entry .span{margin-top:3px;color:var(--accent);font-weight:600;font-size:14.5px}
+.entry p.note{margin:0 0 14px;color:var(--soft)}
+.ships{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.ships li{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline;padding-top:10px;border-top:1px solid var(--glass-edge)}
+.ships .n{font:700 17px/1.3 var(--display)}
+.ships .n a{text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 70%,transparent);text-underline-offset:4px;text-decoration-thickness:2px}
+.ships .d{color:var(--soft);font-size:15.5px;grid-column:1 / -1}
+.ships .m{justify-self:end;color:var(--accent);font-weight:600;font-size:14.5px;text-align:right}
+
+/* Education + certs */
+.close{position:relative;padding:8vh 0 14vh}
+.panel{background:var(--glass);border:1px solid var(--glass-edge);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:22px;padding:28px 30px}
+.close .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:22px}
+.panel h2{font:700 24px/1.1 var(--display);letter-spacing:-.02em;margin:0 0 16px}
+.edu{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.edu li{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center}
+.edu .logo{width:52px;height:52px;border-radius:12px;padding:7px}
+.edu .logo.fallback{font-size:14px;letter-spacing:-.02em}
+.edu b{display:block;font-weight:600}
+.edu span{color:var(--soft);font-size:15px}
+.panel.wide{grid-column:1 / -1}
+.interest{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:28px;align-items:start}
+.interest h3{font:700 clamp(26px,3.2vw,38px)/1.05 var(--display);letter-spacing:-.03em;margin:0 0 10px}
+.interest p{margin:0;color:var(--soft);max-width:34ch}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.shots figure{margin:0}
+.shots img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;border-radius:16px;border:1px solid var(--glass-edge)}
+.shots figcaption{margin-top:8px;color:var(--faint);font-size:14px}
+.certs{margin:0;padding-left:20px;color:var(--soft)}
+.certs li{margin:6px 0}
+footer{position:relative;z-index:1;text-align:center;color:var(--faint);font-size:13.5px;padding:0 20px 38px}
+
+/* ───────────── Small screens ───────────── */
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr}
+  .portrait{max-width:210px}
+  .spine{left:14px}
+  .year{grid-template-columns:1fr;gap:14px;padding:8vh 0;min-height:auto}
+  .year .when{position:sticky;top:0;z-index:3;padding:10px 0;display:flex;align-items:baseline;gap:14px;
+    padding-bottom:16px;background:linear-gradient(to bottom,rgba(8,10,14,.82) 55%,rgba(8,10,14,0))}
+  .year .num{font-size:60px}
+  .year .city{margin:0}
+  .year .body{padding-left:34px}
+  .year .body::before{display:none}
+  .close .wrap{grid-template-columns:1fr}
+  .interest{grid-template-columns:1fr;gap:18px}
+  .shots{grid-template-columns:1fr}
+  .ships li{grid-template-columns:1fr}.ships .m{justify-self:start;text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .scene{transition:none}
+  .win,.cue i::after{animation:none}
+  .scene .layer{transform:none!important}
+  .entry{opacity:1;transform:none;transition:none}
+  .year .num{color:var(--text)}
+}
+</style>
+</head>
+<body>
+
+<div id="stage" aria-hidden="true"></div>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="portrait" id="portrait">
+        <div class="mono">PS</div>
+        <img src="assets/photo.jpg" alt="Pratik Sarkar" onerror="this.remove()">
+      </div>
+      <div>
+        <h1>Pratik Sarkar</h1>
+        <p class="role">Product Manager building payments and AI products at Paytm</p>
+        <p class="lead">I take large, messy problems and ship them as products people use every day: UPI payments for millions of merchants at Paytm, a GenAI assistant for retail data at NielsenIQ, and utility marketplaces before that. Away from work, you will find me on a football pitch. Scroll down to travel back through each year, from today to 2021.</p>
+        <ul class="facts">
+          <li>Paytm, Product Manager, Platform and AI</li>
+          <li>MiM, ESCP Business School, Paris</li>
+          <li>MBA, MDI Gurgaon</li>
+          <li>SAFe 6 Agile Product Manager</li>
+          <li>Plays football</li>
+        </ul>
+        <a class="cue" href="#y2026"><i></i>Start at 2026</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="timeline" id="timeline">
+    <div class="spine"><b></b></div>
+  </div>
+
+  <section class="close">
+    <div class="wrap">
+      <div class="panel wide">
+        <h2>Interests</h2>
+        <div id="play"></div>
+      </div>
+      <div class="panel">
+        <h2>Education</h2>
+        <ul class="edu" id="edu"></ul>
+      </div>
+      <div class="panel">
+        <h2>Certifications</h2>
+        <ul class="certs">
+          <li>SAFe 6 Agile Product Manager</li>
+          <li>SAFe 5 Agile Product Manager / Product Owner</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>Product links go to public pages about each product, not internal material.</footer>
+
+<script>
+/* ═════════════════════ Content: edit here ═════════════════════
+   Logos: drop files in assets/logos/ using the `logo` names below (png).
+   Photo: save yours as assets/photo.jpg.
+   City for each year: change `city` to noida | paris | gurgaon | mumbai. */
+
+const ORGS = {
+  paytm:{ name:"Paytm",              short:"Pt", logo:"assets/logos/paytm.png",     site:"paytm.com",           bg:"#0f2f6b" },
+  niq:  { name:"NielsenIQ",          short:"NIQ",logo:"assets/logos/niq.png",       site:"nielseniq.com",       bg:"#0b6b52" },
+  sew:  { name:"Smart Energy Water", short:"SEW",logo:"assets/logos/sew.png",       site:"smartenergywater.com",bg:"#8a5a00" },
+  infl: { name:"Influence Society",  short:"IS", logo:"assets/logos/influence.png", site:"",                    bg:"#6a2f66" },
+  mdi:  { name:"MDI Gurgaon",        short:"MDI",logo:"assets/logos/mdi.png",       site:"mdi.ac.in",           bg:"#7a1f2b" },
+  escp: { name:"ESCP Business School",short:"ESCP",logo:"assets/logos/escp.png",    site:"escp.eu",             bg:"#1f3a63" },
+  thap: { name:"Thapar Institute",   short:"TIET",logo:"assets/logos/thapar.png",    site:"thapar.edu",          bg:"#4a2a6b" }
+};
+
+const YEARS = [
+ { year:2026, city:"noida", place:"Noida, India", entries:[
+   { org:"paytm", title:"Product Manager, Platform and AI", span:"May 2026 – present",
+     note:"Owning the offline merchant UPI roadmap, aiming for 5% market share.",
+     ships:[
+       { n:"HPCL PrePay", d:"QR-based prepayment, scaled from 1 to 40+ fuel outlets in 47 days at >97% success rate.", m:"47 days" },
+       { n:"eKYC Setu", d:"Frictionless onboarding journey built with the National Payments Corporation of India, within compliance and regulatory requirements.", m:"with NPCI",
+         url:"https://www.npci.org.in/what-we-do/e-kyc-services/e-kyc-setu-system" },
+       { n:"Tap n Pay", d:"First in India for a third-party payments app, within Paytm's ecosystem of 9.88M merchants.", m:"9.88M merchants",
+         url:"https://www.npci.org.in/what-we-do/upi-lite/upi-tap-and-pay/product-overview" },
+       { n:"Digital KYC and onboarding", d:"Self-serve flow on mobile and web. Cut CAC by 3.9% and time-to-activate by 20% (Q4 2026).", m:"−3.9% CAC" },
+       { n:"QR, soundbox and POS sync", d:"Synced static and dynamic UPI QR with soundboxes and POS terminals. Transacting merchants up 8.8% (Q3 2026).", m:"+8.8%" },
+       { n:"Funnel dashboards and fraud classifier", d:"Agent-chained AI dashboards (SQL, Superset, Trino MCP) lifted success rate 0.3%. An AI binary classifier targets a 0.77% cut in chargebacks.", m:"+0.3% SR" }
+     ]},
+   { org:"escp", title:"MiM, Marketing", span:"Graduating 2026", note:"Master in Management at ESCP Business School, Paris.", ships:[] }
+ ]},
+ { year:2025, city:"paris", place:"Paris, France", entries:[
+   { org:"infl", title:"Growth Hacker, Internship", span:"2025, 26 weeks",
+     note:"Designed high-conversion web architectures, user journeys and landing pages. Turned luxury brand aesthetics into frictionless checkout and booking.", ships:[] },
+   { org:"mdi", title:"MBA, Strategy and Finance", span:"Completed 2025", note:"Management Development Institute, Gurgaon.", ships:[] }
+ ]},
+ { year:2024, city:"gurgaon", place:"Gurgaon, India", entries:[
+   { org:"mdi", title:"Joined MDI Gurgaon for the MBA", span:"2024", note:"Left NielsenIQ in June to study Strategy and Finance.", ships:[] },
+   { org:"niq", title:"Product Manager, Platform", span:"Until June 2024",
+     note:"Shipped the GenAI layer on top of Discover.",
+     ships:[
+       { n:"Ask Arthur", d:"RAG chatbot that answers market intelligence questions in natural language, with guardrails, evaluation frameworks and precision metrics to minimise hallucinations.", m:"launched May 2024",
+         url:"https://nielseniq.com/global/en/news-center/2024/nielseniq-launches-gen-ai-based-tool-niq-ask-arthur-into-niq-discover-empowering-users-to-unlock-the-power-of-data/" }
+     ]}
+ ]},
+ { year:2023, city:"mumbai", place:"India", entries:[
+   { org:"niq", title:"Product Manager, Platform", span:"Aug 2022 – Jun 2024",
+     note:"Growing Discover, NielsenIQ's flagship B2C reporting intelligence tool.",
+     ships:[
+       { n:"Volume Decomposition", d:"Became the 2nd most-used feature in retail analytics. Adopted by Unilever, Coca-Cola and P&G, giving Tier-1 clients insight into pricing elasticity, assortment and sales lift.", m:"2nd most used" },
+       { n:"NIQ Discover", d:"Iterated features with A/B tests and quantitative analysis to raise customer engagement.", m:"A/B tested",
+         url:"https://nielseniq.com/global/en/news-center/2024/nielseniq-launches-gen-ai-based-tool-niq-ask-arthur-into-niq-discover-empowering-users-to-unlock-the-power-of-data/" }
+     ]}
+ ]},
+ { year:2022, city:"mumbai", place:"India", entries:[
+   { org:"niq", title:"Joined as Product Manager, Platform", span:"Aug 2022",
+     note:"Took over the lifecycle of Discover: strategy, UI/UX and delivery. Unified Point of Sale and Mom-and-Pop store data into a single sales intelligence view.", ships:[] },
+   { org:"sew", title:"Product Analyst, Marketplace", span:"Until July 2022",
+     note:"Closed out the Moulton Niguel Water District marketplace.", ships:[] }
+ ]},
+ { year:2021, city:"mumbai", place:"India", entries:[
+   { org:"sew", title:"Product Analyst, Marketplace", span:"Jul 2021 – Jul 2022",
+     note:"Where it started. Owned the Marketplace lifecycle for utility SaaS, serving major US energy, gas and water firms.",
+     ships:[
+       { n:"Multi-vendor aggregator", d:"Integrated Amazon and BestBuy APIs for Moulton Niguel Water District, with zero leaks of CPNI and PII.", m:"Amazon, BestBuy",
+         url:"https://www.mnwd.com" },
+       { n:"Unified IAM and SSO", d:"OAuth 2.0 / OIDC sign-in for iOS and Android utility apps.", m:"OAuth 2.0 / OIDC" }
+     ]},
+   { org:"thap", title:"B.E., Computer Sciences", span:"Graduated 2021", note:"Thapar Institute of Engineering and Technology, Patiala.", ships:[] }
+ ]}
+];
+
+const INTERESTS = [
+  { name:"Football",
+    blurb:"Football is my game outside work. I play whenever there is a pitch, floodlights or not.",
+    photos:[
+      { src:"assets/football-1.jpg", alt:"A match at night: a goalkeeper dives on the ball in front of a goalpost as players and spectators look on.", cap:"Match night" },
+      { src:"assets/football-2.jpg", alt:"A player in a black jersey bends forward while a man in a white jersey places a gold medal around his neck, between two sports banners.", cap:"Medal time" }
+    ] }
+];
+
+const EDU = [
+  { org:"escp", t:"MiM, Marketing", s:"ESCP Business School, Paris · 2026" },
+  { org:"mdi",  t:"MBA, Strategy and Finance", s:"Management Development Institute, Gurgaon · 2025" },
+  { org:"thap", t:"B.E., Computer Sciences", s:"Thapar Institute of Engineering and Technology, Patiala · 2021" }
+];
+
+/* Per-city look. sky: [top, mid, bottom]. */
+const CITIES = {
+  noida:  { label:"Noida",   accent:"#6ee7d0", sky:["#06222b","#0f4a52","#e0a35b"], orb:"#ffd9a0", far:"#14525a", mid:"#0c353d", near:"#061e24", haze:"#e0a35b44", lights:"#ffe9a8", kind:"towers" },
+  paris:  { label:"Paris",   accent:"#ffb3c7", sky:["#1b1636","#523a70","#f08f7c"], orb:"#ffd6c2", far:"#5a4378", mid:"#3a2a58", near:"#1a1230", haze:"#f08f7c55", lights:"#ffe0b0", kind:"paris" },
+  gurgaon:{ label:"Gurgaon", accent:"#ffc766", sky:["#1c1308","#6b4311","#d98a2b"], orb:"#ffe6a8", far:"#7a5320", mid:"#4d3411", near:"#241707", haze:"#d98a2b66", lights:"#fff0b8", kind:"glass" },
+  mumbai: { label:"Mumbai",  accent:"#8be0a0", sky:["#07201a","#12483a","#4f8f78"], orb:"#cfeee0", far:"#1d5e4a", mid:"#11402f", near:"#07241b", haze:"#4f8f7866", lights:"#fff2c4", kind:"sealink" }
+};
+
+/* ═════════════════════ Skyline generator ═════════════════════ */
+function rng(seed){ let s = seed>>>0; return () => (s = (s*1664525 + 1013904223)>>>0) / 4294967296; }
+
+function skyline(kind, color, seed, scale, lights, withLights){
+  const r = rng(seed), W = 1600, H = 400; let x = -20, out = "";
+  const winOn = withLights ? lights : null;
+  const bld = (w,h) => {
+    out += `<rect x="${x}" y="${H-h}" width="${w}" height="${h}" fill="${color}"/>`;
+    if (winOn){
+      for (let i=0;i<Math.floor(h/26);i++){
+        if (r() < .32){
+          const wx = x + 6 + Math.floor(r()*(Math.max(1,(w-14)/9)))*9, wy = H - h + 10 + i*22;
+          if (wx < x+w-8) out += `<rect class="win" style="animation-delay:${(r()*5).toFixed(1)}s" x="${wx}" y="${wy}" width="4" height="7" fill="${winOn}"/>`;
+        }
+      }
+    }
+  };
+  while (x < W+40){
+    let w, h;
+    if (kind==="glass"){ w = 36+r()*54; h = (60+r()*250)*scale; if (r()<.18) h = (260+r()*120)*scale; }
+    else if (kind==="paris"){ w = 70+r()*70; h = (40+r()*55)*scale; }
+    else if (kind==="sealink"){ w = 30+r()*60; h = (50+r()*190)*scale; }
+    else { w = 44+r()*70; h = (50+r()*190)*scale; }
+    bld(w,h);
+    if (kind==="paris"){ /* mansard roof + chimneys */
+      out += `<polygon points="${x},${H-h} ${x+w},${H-h} ${x+w-10},${H-h-18} ${x+10},${H-h-18}" fill="${color}"/>`;
+      if (r()<.5) out += `<rect x="${x+w*.3}" y="${H-h-32}" width="7" height="16" fill="${color}"/>`;
+    }
+    if (kind==="glass" && r()<.22){ /* crane */
+      out += `<rect x="${x+w/2}" y="${H-h-90}" width="3" height="90" fill="${color}"/><rect x="${x+w/2-40}" y="${H-h-92}" width="90" height="3" fill="${color}"/>`;
+    }
+    if (kind==="towers" && r()<.25) out += `<rect x="${x+w/2-1}" y="${H-h-40}" width="2" height="40" fill="${color}"/>`;
+    x += w + (kind==="paris" ? 0 : r()*10);
+  }
+  return out;
+}
+function landmark(kind, color){
+  if (kind==="paris"){ /* a lattice-iron tower silhouette */
+    return `<g fill="${color}"><polygon points="1010,400 1040,400 1031,250 1019,250"/>
+      <polygon points="1015,250 1035,250 1030,168 1020,168"/><polygon points="1021,168 1029,168 1026,92 1024,92"/>
+      <rect x="1024" y="60" width="2" height="34"/><rect x="990" y="248" width="70" height="7"/><rect x="1004" y="166" width="42" height="5"/>
+      <path d="M1000 400 Q1025 300 1050 400 Z" fill="#00000033"/></g>`;
+  }
+  if (kind==="sealink"){ /* cable-stayed bridge */
+    let s = `<g fill="none" stroke="${color}" stroke-width="2"><rect x="0" y="352" width="1600" height="6" fill="${color}" stroke="none"/>`;
+    [520,1040].forEach(px=>{ s += `<line x1="${px}" y1="352" x2="${px}" y2="110" stroke-width="9"/>`;
+      for (let i=1;i<=9;i++){ s += `<line x1="${px}" y1="${120+i*9}" x2="${px-i*38}" y2="352"/><line x1="${px}" y1="${120+i*9}" x2="${px+i*38}" y2="352"/>`; } });
+    return s + `</g>`;
+  }
+  return "";
+}
+
+function buildScene(key){
+  const c = CITIES[key], el = document.createElement("div");
+  el.className = "scene"; el.dataset.city = key; el.style.setProperty("--haze", c.haze);
+  const layers = [
+    ["l1", c.far,  11, .62, false, false],
+    ["l2", c.mid,  23, .84, true,  true ],
+    ["l3", c.near, 37, 1.05,true,  true ]
+  ].map(([cls,col,seed,sc,lights,withLights]) =>
+    `<div class="layer ${cls}"><svg viewBox="0 0 1600 400" preserveAspectRatio="none">${skyline(c.kind,col,seed+key.length,sc,c.lights,withLights)}${cls==="l2"?landmark(c.kind,col):""}</svg></div>`).join("");
+  el.innerHTML =
+    `<div class="sky" style="background:linear-gradient(to bottom,${c.sky[0]} 0%,${c.sky[1]} 52%,${c.sky[2]} 100%)"></div>
+     <div class="orb" style="background:radial-gradient(circle at 40% 40%,${c.orb},${c.orb}00 70%)"></div>${layers}<div class="haze"></div>`;
+  return el;
+}
+
+/* ═════════════════════ Build page ═════════════════════ */
+const stage = document.getElementById("stage");
+Object.keys(CITIES).forEach(k => stage.append(buildScene(k)));
+
+function logo(orgKey, cls){
+  const o = ORGS[orgKey], box = document.createElement("div");
+  box.className = "logo" + (cls ? " "+cls : "");
+  const fb = () => { box.className = "logo fallback" + (cls ? " "+cls : ""); box.style.setProperty("--chipbg", o.bg); box.textContent = o.short; box.setAttribute("role","img"); box.setAttribute("aria-label", o.name); };
+  const tries = [o.logo];
+  if (o.site) tries.push("https://www.google.com/s2/favicons?domain=" + o.site + "&sz=128");
+  const img = new Image(); img.alt = o.name;
+  let i = 0;
+  img.onerror = () => { i++; if (i < tries.length) img.src = tries[i]; else fb(); };
+  img.src = tries[0]; box.append(img);
+  return box;
+}
+
+const tl = document.getElementById("timeline");
+YEARS.forEach(y => {
+  const sec = document.createElement("section");
+  sec.className = "year"; sec.id = "y"+y.year; sec.dataset.city = y.city;
+  sec.setAttribute("aria-label", y.year + ", " + y.place);
+  const when = `<div class="when"><div class="num">${y.year}</div><div class="city">${y.place}</div></div>`;
+  const body = document.createElement("div"); body.className = "body";
+  y.entries.forEach(e => {
+    const o = ORGS[e.org], art = document.createElement("article"); art.className = "entry";
+    const head = document.createElement("header");
+    head.append(logo(e.org));
+    const hd = document.createElement("div");
+    hd.innerHTML = `<h2></h2><p class="sub"></p><p class="span"></p>`;
+    hd.querySelector("h2").textContent = o.name;
+    hd.querySelector(".sub").textContent = e.title;
+    hd.querySelector(".span").textContent = e.span;
+    head.append(hd); art.append(head);
+    if (e.note){ const p = document.createElement("p"); p.className = "note"; p.textContent = e.note; art.append(p); }
+    if (e.ships.length){
+      const ul = document.createElement("ul"); ul.className = "ships";
+      e.ships.forEach(s => {
+        const li = document.createElement("li");
+        const n = document.createElement("span"); n.className = "n";
+        if (s.url){ const a = document.createElement("a"); a.href = s.url; a.target = "_blank"; a.rel = "noopener noreferrer"; a.textContent = s.n; n.append(a); } else n.textContent = s.n;
+        const m = document.createElement("span"); m.className = "m"; m.textContent = s.m;
+        const d = document.createElement("span"); d.className = "d"; d.textContent = s.d;
+        li.append(n, m, d); ul.append(li);
+      });
+      art.append(ul);
+    }
+    body.append(art);
+  });
+  sec.innerHTML = when; sec.append(body); tl.append(sec);
+});
+
+const eduEl = document.getElementById("edu");
+EDU.forEach(e => {
+  const li = document.createElement("li"); li.append(logo(e.org));
+  const d = document.createElement("div"); d.innerHTML = "<b></b><span></span>";
+  d.querySelector("b").textContent = e.t; d.querySelector("span").textContent = e.s; li.append(d); eduEl.append(li);
+});
+
+const playEl = document.getElementById("play");
+INTERESTS.forEach(it => {
+  const art = document.createElement("article"); art.className = "interest";
+  const t = document.createElement("div"); t.className = "txt";
+  const h = document.createElement("h3"); h.textContent = it.name;
+  const p = document.createElement("p"); p.textContent = it.blurb;
+  t.append(h, p); art.append(t);
+  const fig = document.createElement("div"); fig.className = "shots";
+  it.photos.forEach(ph => {
+    const f = document.createElement("figure");
+    const im = new Image(); im.src = ph.src; im.alt = ph.alt; im.loading = "lazy";
+    const c = document.createElement("figcaption"); c.textContent = ph.cap;
+    f.append(im, c); fig.append(f);
+  });
+  art.append(fig); playEl.append(art);
+});
+
+/* ═════════════════════ Scroll behaviour ═════════════════════ */
+const root = document.documentElement, scenes = {};
+document.querySelectorAll(".scene").forEach(s => scenes[s.dataset.city] = s);
+let current = null;
+function setCity(k){
+  if (k === current || !CITIES[k]) return; current = k;
+  Object.entries(scenes).forEach(([key,el]) => el.classList.toggle("on", key===k));
+  root.style.setProperty("--accent", CITIES[k].accent);
+}
+setCity(YEARS[0].city);
+
+/* The year closest to the vertical middle of the screen is the active one. */
+const years = [...document.querySelectorAll(".year")];
+let ticking = false;
+function update(){
+  ticking = false;
+  const doc = root.scrollHeight - innerHeight;
+  const tr = tl.getBoundingClientRect();
+  root.style.setProperty("--sp", Math.min(1, Math.max(0, (innerHeight*.5 - tr.top)/tr.height)).toFixed(4));
+  root.style.setProperty("--p", doc > 0 ? Math.min(1, Math.max(0, scrollY/doc)).toFixed(4) : 0);
+  const mid = innerHeight * .5; let best = null, bd = Infinity;
+  years.forEach(sec => {
+    const r = sec.getBoundingClientRect();
+    if (r.top < innerHeight*.75 && r.bottom > innerHeight*.15) sec.classList.add("in");
+    const d = Math.abs((r.top + r.bottom)/2 - mid);
+    if (r.top < mid && r.bottom > mid) { best = sec; bd = -1; }
+    else if (bd >= 0 && d < bd){ best = sec; bd = d; }
+  });
+  const heroBottom = document.getElementById("top").getBoundingClientRect().bottom;
+  setCity(heroBottom > innerHeight*.5 ? YEARS[0].city : (best ? best.dataset.city : current));
+}
+addEventListener("scroll", () => { if (!ticking){ ticking = true; requestAnimationFrame(update); } }, {passive:true});
+addEventListener("resize", update);
+update();
+</script>
+</body>
+</html>
