@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pratik Sarkar | Product Portfolio</title>
+<meta name="description" content="Product Manager portfolio: payments, AI and platform products across FinTech, FMCG and Energy.">
+<style>
+:root{
+  --bg:#f7f6f3; --surface:#ffffff; --ink:#16181d; --muted:#5d6470; --line:#e4e2dc;
+  --accent:#0b5fff; --accent-ink:#ffffff; --chip:#eef1f7; --shadow:0 1px 2px rgba(20,24,30,.05),0 8px 24px rgba(20,24,30,.06);
+  --paytm:#0b5fff; --niq:#0f9d76; --sew:#e08a00; --growth:#a0489b;
+}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --surface:#171a21; --ink:#eceef2; --muted:#9aa3b2; --line:#272c36;
+  --accent:#6ea0ff; --accent-ink:#0b1020; --chip:#202531; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  --paytm:#6ea0ff; --niq:#3fd1a6; --sew:#ffb445; --growth:#d58ad0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{padding:56px 0 28px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:36px}
+.brand{font-weight:700;letter-spacing:.2px}
+.toggle{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer}
+h1{font-size:clamp(34px,6vw,56px);line-height:1.05;margin:0 0 14px;letter-spacing:-.02em}
+.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:720px;margin:0 0 20px}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{background:var(--chip);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:30px 0 8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:30px;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:14px}
+.controls{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:14px 0;margin-top:26px}
+.controls .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font:inherit;font-size:14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.search{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;min-width:210px}
+.count{color:var(--muted);font-size:14px;margin:18px 0 6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;padding-bottom:30px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;border-top:4px solid var(--c,var(--accent))}
+.card[hidden]{display:none}
+.meta{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted)}
+.co{font-weight:600;color:var(--c)}
+.card h3{margin:0;font-size:20px;letter-spacing:-.01em}
+.card p{margin:0;color:var(--muted)}
+.metrics{display:flex;flex-wrap:wrap;gap:8px}
+.metric{background:var(--chip);border-radius:10px;padding:6px 10px;font-size:13px}
+.metric b{color:var(--c)}
+.more{display:none;border-top:1px dashed var(--line);padding-top:12px;font-size:15px}
+.more ul{margin:6px 0 0;padding-left:18px}
+.card.open .more{display:block}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.btn{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:10px;padding:8px 12px;font:inherit;font-size:14px;text-decoration:none;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.empty{padding:40px 0;color:var(--muted);text-align:center}
+section.links{border-top:1px solid var(--line);padding:30px 0 60px}
+section.links h2{margin:0 0 12px;font-size:22px}
+.linklist{display:flex;flex-wrap:wrap;gap:10px}
+footer{color:var(--muted);font-size:13px;padding-bottom:40px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="topbar">
+      <div class="brand">Pratik Sarkar</div>
+      <button class="toggle" id="theme" aria-label="Toggle dark mode">Dark mode</button>
+    </div>
+    <h1>Product Manager building payments, AI and platform products.</h1>
+    <p class="lead">UPI and merchant payments at Paytm, enterprise data and GenAI at NielsenIQ, and utility marketplaces at Smart Energy Water.</p>
+    <div class="badges">
+      <span class="badge">MiM, ESCP Business School (2026)</span>
+      <span class="badge">MBA, MDI Gurgaon (2025)</span>
+      <span class="badge">B.E. Computer Sciences, Thapar (2021)</span>
+      <span class="badge">SAFe 6 Agile Product Manager</span>
+      <span class="badge">SAFe 5 Agile Product Manager / Product Owner</span>
+    </div>
+    <div class="stats" aria-label="Highlights">
+      <div class="stat"><b data-count="40" data-suffix="+">0</b><span>fuel outlets live with HPCL PrePay, from 1 in 47 days</span></div>
+      <div class="stat"><b data-count="9.88" data-suffix="M" data-dec="2">0</b><span>merchants in Paytm's ecosystem for Tap n Pay</span></div>
+      <div class="stat"><b data-count="97" data-prefix=">" data-suffix="%">0</b><span>payment success rate held at scale</span></div>
+      <div class="stat"><b data-count="2" data-suffix="nd">0</b><span>most-used feature in NIQ retail analytics (Volume Decomposition)</span></div>
+    </div>
+  </header>
+</div>
+
+<div class="controls">
+  <div class="wrap row">
+    <div class="chips" id="filters" role="group" aria-label="Filter by company"></div>
+    <label class="sr" for="q">Search products</label>
+    <input class="search" id="q" type="search" placeholder="Search products, tags, tech">
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="count" id="count" aria-live="polite"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>No products match. Try a different filter or search.</div>
+
+  <section class="links">
+    <h2>Companies and reference links</h2>
+    <div class="linklist" id="companies"></div>
+  </section>
+  <footer>Metrics are drawn from my own work history. Product links go to official or public sources about each product, not internal material.</footer>
+</main>
+
+<script>
+/* ---------- Edit your content here ----------
+   Add a link to any product by filling its `links` array: { label, url }.
+   Cards without links simply show no link buttons. */
+const COMPANIES = {
+  paytm:  { name: "Paytm",              role: "Product Manager, Platform and AI", when: "May 2026 – Present", color: "var(--paytm)",  url: "https://paytm.com" },
+  niq:    { name: "NielsenIQ",          role: "Product Manager, Platform",        when: "Aug 2022 – Jun 2024", color: "var(--niq)",    url: "https://nielseniq.com" },
+  sew:    { name: "Smart Energy Water", role: "Product Analyst, Marketplace",     when: "Jul 2021 – Jul 2022", color: "var(--sew)",    url: "" },
+  growth: { name: "Influence Society",  role: "Growth Hacker (Internship)",       when: "2025, 26 weeks",      color: "var(--growth)", url: "" }
+};
+
+const PRODUCTS = [
+  { co:"paytm", name:"HPCL PrePay", year:"Paytm",
+    blurb:"QR-based prepayment solution for fuel outlets, scaled across India.",
+    metrics:[["Outlets","1 → 40+"],["Time","47 days"],["Success rate",">97%"]],
+    details:["Scaled the rollout while limiting server load.","Held payment success rate above 97% throughout."],
+    tags:["UPI","QR","Payments","Scale"], links:[] },
+
+  { co:"paytm", name:"eKYC Setu", year:"Paytm",
+    blurb:"Frictionless merchant onboarding journey built with the National Payments Corporation of India.",
+    metrics:[["Partner","NPCI"]],
+    details:["Navigated compliance and regulatory requirements.","Designed a frictionless UI/UX for the onboarding flow."],
+    tags:["KYC","Compliance","Onboarding","NPCI"],
+    links:[{label:"About eKYC Setu (NPCI)", url:"https://www.npci.org.in/what-we-do/e-kyc-services/e-kyc-setu-system"}] },
+
+  { co:"paytm", name:"Tap n Pay", year:"Paytm",
+    blurb:"First in India for a third-party payments app, within Paytm's ecosystem of 9.88M merchants.",
+    metrics:[["Merchants","9.88M"],["Milestone","First in India"]],
+    details:["Architected the product within Paytm's merchant ecosystem."],
+    tags:["UPI","NFC","Payments"],
+    links:[{label:"UPI Tap & Pay overview (NPCI)", url:"https://www.npci.org.in/what-we-do/upi-lite/upi-tap-and-pay/product-overview"}] },
+
+  { co:"paytm", name:"Digital KYC and merchant onboarding", year:"Paytm",
+    blurb:"Self-serve, frictionless onboarding across mobile and web interfaces.",
+    metrics:[["CAC","−3.9%"],["Time-to-activate","−20%"],["Quarter","Q4 2026"]],
+    details:["Designed and launched the flow end to end."],
+    tags:["KYC","Onboarding","Growth","Mobile","Web"], links:[] },
+
+  { co:"paytm", name:"UPI QR, soundbox and POS sync", year:"Paytm",
+    blurb:"Static and dynamic UPI QR flows synced with smart soundboxes and POS terminals.",
+    metrics:[["Transacting merchants","+8.8%"],["Quarter","Q3 2026"]],
+    details:["Partnered with IoT, Engineering and Sales teams."],
+    tags:["UPI","IoT","Soundbox","POS"], links:[] },
+
+  { co:"paytm", name:"Payment funnel AI dashboards", year:"Paytm",
+    blurb:"Agent-chained, AI-generated dashboards that report payment funnel drop-offs.",
+    metrics:[["Success rate","+0.3%"]],
+    details:["Built with SQL, Apache Superset and Trino MCP."],
+    tags:["AI","SQL","Superset","Analytics"], links:[] },
+
+  { co:"paytm", name:"Chargeback and fraud classifier", year:"Paytm",
+    blurb:"AI binary classifier to minimize chargebacks and fraudulent disputes.",
+    metrics:[["Reduction","0.77%"],["Quarter","Q3 2026"]],
+    details:["Reduces manual operations and improves platform reliability."],
+    tags:["AI","Risk","Fraud","ML"], links:[] },
+
+  { co:"paytm", name:"Offline merchant UPI roadmap", year:"Paytm",
+    blurb:"Product roadmap for the offline merchant UPI ecosystem.",
+    metrics:[["Target","5% market share"]],
+    details:["Drafting the roadmap across merchant, device and onboarding workstreams."],
+    tags:["Roadmap","UPI","Strategy"], links:[] },
+
+  { co:"niq", name:"NIQ Discover", year:"NielsenIQ",
+    blurb:"Flagship B2C reporting intelligence tool, unifying POS and traditional-trade data.",
+    metrics:[["Scope","Strategy, UI/UX, delivery"]],
+    details:["Unified POS and Mom-and-Pop store data into one sales intelligence view.","Used A/B tests and quantitative analysis to raise customer engagement."],
+    tags:["Analytics","Retail data","B2C","A/B testing"],
+    links:[{label:"Discover and Ask Arthur press release", url:"https://nielseniq.com/global/en/news-center/2024/nielseniq-launches-gen-ai-based-tool-niq-ask-arthur-into-niq-discover-empowering-users-to-unlock-the-power-of-data/"}] },
+
+  { co:"niq", name:"Ask Arthur", year:"NielsenIQ",
+    blurb:"RAG chatbot that answers complex market intelligence questions in natural language.",
+    metrics:[["Announced","May 2024"],["Approach","RAG"]],
+    details:["Built guardrails, output evaluation frameworks and precision metrics to minimize hallucinations in enterprise reporting."],
+    tags:["GenAI","RAG","Evaluation","Guardrails"],
+    links:[{label:"NIQ press release", url:"https://nielseniq.com/global/en/news-center/2024/nielseniq-launches-gen-ai-based-tool-niq-ask-arthur-into-niq-discover-empowering-users-to-unlock-the-power-of-data/"}] },
+
+  { co:"niq", name:"Volume Decomposition", year:"NielsenIQ",
+    blurb:"Feature that became the 2nd most-used in NielsenIQ's retail analytics segment.",
+    metrics:[["Rank","2nd most used"],["Adopters","Unilever, Coca-Cola, P&G"]],
+    details:["Gave Tier-1 clients insight into pricing elasticity, assortment optimization and sales lift, influencing billions in retail revenue."],
+    tags:["Analytics","FMCG","Pricing","Adoption"], links:[] },
+
+  { co:"sew", name:"Multi-vendor marketplace aggregator", year:"Smart Energy Water",
+    blurb:"Aggregator engine integrating Amazon and BestBuy APIs for Moulton Niguel Water District.",
+    metrics:[["Vendors","Amazon, BestBuy"],["Client","Moulton Niguel Water District"]],
+    details:["Owned the Marketplace lifecycle inside SaaS utility offerings for major US energy, gas and water firms.","Zero leaks of CPNI and PII during external API round-trips."],
+    tags:["eCommerce","APIs","Security","SaaS"],
+    links:[{label:"Moulton Niguel Water District", url:"https://www.mnwd.com"}] },
+
+  { co:"sew", name:"Unified IAM and SSO", year:"Smart Energy Water",
+    blurb:"Secure authentication for iOS and Android utility apps.",
+    metrics:[["Standards","OAuth 2.0 / OIDC"]],
+    details:["Enabled seamless single sign-on utility customer verification."],
+    tags:["IAM","OAuth","OIDC","Mobile"], links:[] },
+
+  { co:"growth", name:"Luxury brand booking and checkout journeys", year:"Influence Society",
+    blurb:"High-conversion web architectures, user journeys and landing pages, Paris.",
+    metrics:[["Duration","26 weeks"]],
+    details:["Translated luxury brand aesthetics into frictionless digital checkout and booking."],
+    tags:["Growth","UX","Landing pages","Conversion"], links:[] }
+];
+
+/* ---------- App ---------- */
+const $ = s => document.querySelector(s);
+const grid = $("#grid"), count = $("#count"), empty = $("#empty");
+let filter = "all", query = "";
+
+function el(tag, attrs = {}, ...kids){
+  const n = document.createElement(tag);
+  for (const [k,v] of Object.entries(attrs)){
+    if (k === "class") n.className = v;
+    else if (k === "style") n.setAttribute("style", v);
+    else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v);
+  }
+  kids.flat().forEach(c => n.append(c.nodeType ? c : document.createTextNode(c)));
+  return n;
+}
+
+function card(p){
+  const c = COMPANIES[p.co];
+  const more = el("div", {class:"more", id:"d-"+p.name.replace(/\W+/g,"-")},
+    el("strong", {}, "What I did"),
+    el("ul", {}, p.details.map(d => el("li", {}, d))));
+  const btn = el("button", {class:"btn", "aria-expanded":"false", "aria-controls":more.id}, "Details");
+  btn.addEventListener("click", () => {
+    const open = card_el.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+    btn.textContent = open ? "Hide details" : "Details";
+  });
+  const actions = el("div", {class:"actions"}, btn,
+    p.links.map(l => el("a", {class:"btn primary", href:l.url, target:"_blank", rel:"noopener noreferrer"}, l.label + " ↗")));
+  const card_el = el("article", {class:"card", style:"--c:"+c.color,
+      "data-co":p.co, "data-text":(p.name+" "+p.blurb+" "+p.tags.join(" ")+" "+c.name+" "+p.details.join(" ")).toLowerCase()},
+    el("div", {class:"meta"}, el("span", {class:"co"}, c.name), el("span", {}, c.when)),
+    el("h3", {}, p.name),
+    el("p", {}, p.blurb),
+    el("div", {class:"metrics"}, p.metrics.map(m => el("span", {class:"metric"}, m[0]+": ", el("b", {}, m[1])))),
+    el("div", {class:"tags"}, p.tags.map(t => el("span", {class:"tag"}, t))),
+    more, actions);
+  return card_el;
+}
+
+PRODUCTS.forEach(p => grid.append(card(p)));
+
+function renderFilters(){
+  const wrap = $("#filters");
+  const opts = [["all","All"], ...Object.entries(COMPANIES).map(([k,v]) => [k, v.name])];
+  opts.forEach(([k,label]) => {
+    const b = el("button", {class:"chip", "aria-pressed": String(k===filter)}, label);
+    b.addEventListener("click", () => { filter = k; [...wrap.children].forEach((x,i) => x.setAttribute("aria-pressed", String(opts[i][0]===k))); apply(); });
+    wrap.append(b);
+  });
+}
+
+function apply(){
+  let shown = 0;
+  [...grid.children].forEach(n => {
+    const ok = (filter==="all" || n.dataset.co===filter) && (!query || n.dataset.text.includes(query));
+    n.hidden = !ok; if (ok) shown++;
+  });
+  count.textContent = shown + " of " + PRODUCTS.length + " products";
+  empty.hidden = shown !== 0;
+}
+$("#q").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); apply(); });
+renderFilters(); apply();
+
+/* Company links */
+const cl = $("#companies");
+Object.values(COMPANIES).forEach(c => {
+  cl.append(c.url ? el("a", {class:"btn", href:c.url, target:"_blank", rel:"noopener noreferrer"}, c.name+" ↗")
+                  : el("span", {class:"btn", style:"opacity:.7;cursor:default"}, c.name));
+});
+cl.append(el("a", {class:"btn", href:"https://www.npci.org.in", target:"_blank", rel:"noopener noreferrer"}, "NPCI ↗"));
+
+/* Animated counters (respect reduced motion) */
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+document.querySelectorAll("[data-count]").forEach(n => {
+  const end = parseFloat(n.dataset.count), dec = +(n.dataset.dec||0), pre = n.dataset.prefix||"", suf = n.dataset.suffix||"";
+  const fmt = v => pre + v.toFixed(dec) + suf;
+  if (reduce){ n.textContent = fmt(end); return; }
+  const t0 = performance.now(), dur = 1100;
+  (function tick(t){ const k = Math.min(1,(t-t0)/dur); n.textContent = fmt(end*(1-Math.pow(1-k,3))); if (k<1) requestAnimationFrame(tick); })(t0);
+});
+
+/* Theme */
+const root = document.documentElement, tbtn = $("#theme");
+function setTheme(t){ root.dataset.theme = t; tbtn.textContent = t==="dark" ? "Light mode" : "Dark mode"; try{ localStorage.setItem("theme", t); }catch(e){} }
+let saved = null; try{ saved = localStorage.getItem("theme"); }catch(e){}
+setTheme(saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+tbtn.addEventListener("click", () => setTheme(root.dataset.theme==="dark" ? "light" : "dark"));
+</script>
+</body>
+</html>
